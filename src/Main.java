@@ -153,7 +153,10 @@ class CarRentalSystem {
                 String customerName = scanner.nextLine();
                 System.out.print("Enter your Aadhar number: ");
                 String customerNumber = scanner.nextLine();
+                System.out.print("Enter your Driving Licence Number: ");
+                String customerLicence = scanner.nextLine();
 
+                System.out.println("Driving Licence verified succesfully");
                 System.out.println("\nAvailable Cars:");
                 for (Car car : cars) {
                     if (car.isAvailable()) {
@@ -173,6 +176,9 @@ class CarRentalSystem {
 
                 Customer newCustomer1 = new Customer("CUS" + (customers.size() + 1), customerNumber);
                 addCustomer(newCustomer1);
+
+                Customer newCustomer2 = new Customer("CUS" + (customers.size() + 1), customerLicence);
+                addCustomer(newCustomer2);
 
                 Car selectedCar = null;
                 for (Car car : cars) {
@@ -254,9 +260,17 @@ public class Main {
         Car car1 = new Car("C001", "Toyota", "Camry", 60.0);
         Car car2 = new Car("C002", "Honda", "Accord", 70.0);
         Car car3 = new Car("C003", "Mahindra", "Thar", 150.0);
+        Car car4 = new Car("C004", "Mahindra", "xuv500", 180.0);
+        Car car5 = new Car("C005", "Audi", "x7", 300.0);
+        Car car6 = new Car("C006", "maruthi", "swift", 100.0);
+        Car car7 = new Car("C007", "Toyota", "supra", 400.0);
         rentalSystem.addCar(car1);
         rentalSystem.addCar(car2);
         rentalSystem.addCar(car3);
+        rentalSystem.addCar(car4);
+        rentalSystem.addCar(car5);
+        rentalSystem.addCar(car6);
+        rentalSystem.addCar(car7);
 
         rentalSystem.menu();
     }
