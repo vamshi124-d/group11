@@ -99,6 +99,18 @@ class CarRentalSystem {
         rentals = new ArrayList<>();
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public List<Rental> getRentals() {
+        return rentals;
+    }
+
     public void addCar(Car car) {
         cars.add(car);
     }
@@ -156,7 +168,6 @@ class CarRentalSystem {
                 System.out.print("Enter your Driving Licence Number: ");
                 String customerLicence = scanner.nextLine();
 
-                System.out.println("Driving Licence verified succesfully");
                 System.out.println("\nAvailable Cars:");
                 for (Car car : cars) {
                     if (car.isAvailable()) {
@@ -176,9 +187,6 @@ class CarRentalSystem {
 
                 Customer newCustomer1 = new Customer("CUS" + (customers.size() + 1), customerNumber);
                 addCustomer(newCustomer1);
-
-                Customer newCustomer2 = new Customer("CUS" + (customers.size() + 1), customerLicence);
-                addCustomer(newCustomer2);
 
                 Car selectedCar = null;
                 for (Car car : cars) {
@@ -264,6 +272,7 @@ public class Main {
         Car car5 = new Car("C005", "Audi", "x7", 300.0);
         Car car6 = new Car("C006", "maruthi", "swift", 100.0);
         Car car7 = new Car("C007", "Toyota", "supra", 400.0);
+
         rentalSystem.addCar(car1);
         rentalSystem.addCar(car2);
         rentalSystem.addCar(car3);
@@ -271,6 +280,9 @@ public class Main {
         rentalSystem.addCar(car5);
         rentalSystem.addCar(car6);
         rentalSystem.addCar(car7);
+
+        CarRentalSystemGUI gui = new CarRentalSystemGUI(rentalSystem);
+        gui.setVisible(true);
 
         rentalSystem.menu();
     }
